@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netodoBook</title>
+    <link rel="stylesheet" href="../scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <style>
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: #3e3e3e45;
+        }
+        
+        #loader-wrapper .loader-section.section-left {
+            left: 0;
+        }
+        
+        #loader-wrapper .loader-section.section-right {
+            right: 0;
+        }
+        
+        #loader {
+            display: block;
+            position: relative;
+            left: 45%;
+            top: 30%;
+            z-index: 1001;
+        }
+        
+        .circle-big {
+            position: absolute;
+            margin: -0.5em -1.55em auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            box-sizing: border-box;
+            border-width: 75px;
+            border-style: solid;
+            border-color: #ff7a6c #ff7a6c transparent transparent;
+            transform: rotate(45deg);
+            animation-name: spinReverse;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        .circle-top-left {
+            position: absolute;
+            margin: 1em auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-width: 50px;
+            border-style: solid;
+            border-color: transparent transparent transparent #ffdc7b;
+            transform: rotate(45deg);
+            animation-name: rotateInDownLeft;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            z-index: 1009;
+        }
+        
+        .circle-top-right {
+            position: absolute;
+            margin: 1em auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-width: 50px;
+            border-style: solid;
+            border-color: #ffffff #ffffff transparent transparent;
+            transform: rotate(45deg);
+            animation-name: spin;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        .circle-bottom-right {
+            position: absolute;
+            margin: 1em auto;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-width: 50px;
+            border-style: solid;
+            border-color: transparent rgb(245, 243, 239) transparent transparent;
+            transform: rotate(45deg);
+            animation-name: rotateInUpLeft;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        .circle-bottom-left {
+            position: absolute;
+            margin: 2.5em 1.57em auto;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            border-width: 25px;
+            border-style: solid;
+            border-color: transparent transparent #373449 transparent;
+            transform: rotate(45deg);
+            animation-name: rotateInUpRight;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        .circle-eye {
+            position: absolute;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: #373449;
+            top: 41px;
+            /* left: 55px; */
+            z-index: 1010;
+            animation-name: eyeMove;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        @keyframes eyeMove {
+            0% {
+                transform: translateX(50px);
+            }
+            25% {
+                transform: translateX(25px);
+            }
+            50% {
+                transform: translateX(25px);
+            }
+            75% {
+                transform: translateX(50px);
+            }
+            100% {
+                transform: translateX(50px);
+            }
+        }
+        
+        @keyframes rotateInDownLeft {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(135deg);
+            }
+            50% {
+                transform: rotate(135deg);
+            }
+            75% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+        
+        @keyframes rotateInUpRight {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(-45deg);
+            }
+            50% {
+                transform: rotate(-45deg);
+            }
+            75% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+        
+        @keyframes rotateInUpLeft {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(135deg);
+            }
+            50% {
+                transform: rotate(135deg);
+            }
+            75% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(45deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(-135deg);
+            }
+            50% {
+                transform: rotate(-135deg);
+            }
+            75% {
+                transform: rotate(-315deg);
+            }
+            100% {
+                transform: rotate(-315deg);
+            }
+        }
+        
+        @keyframes spinReverse {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(225deg);
+            }
+            50% {
+                transform: rotate(225deg);
+            }
+            75% {
+                transform: rotate(405deg);
+            }
+            100% {
+                transform: rotate(405deg);
+            }
+        }
+        /* Loaded */
+        
+        .loaded #loader-wrapper .loader-section.section-left {
+            -webkit-transform: translateX(-100%);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(-100%);
+            /* IE 9 */
+            transform: translateX(-100%);
+            /* Firefox 16+, IE 10+, Opera */
+        }
+        
+        .loaded #loader-wrapper .loader-section.section-right {
+            -webkit-transform: translateX(100%);
+            /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform: translateX(100%);
+            /* IE 9 */
+            transform: translateX(100%);
+            /* Firefox 16+, IE 10+, Opera */
+        }
+        
+        .loaded #loader {
+            opacity: 0;
+        }
+        
+        .loaded #loader-wrapper {
+            visibility: hidden;
+        }
+        
+        .loaded #loader-wrapper .loader-section.section-right,
+        .loaded #loader-wrapper .loader-section.section-left {
+            -webkit-transition: all 0.3s 0.3s ease-out;
+            transition: all 0.3s 0.3s ease-out;
+        }
+        
+        .credits {
+            position: absolute;
+            color: #373449;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+
+        <div class="section">
+            <h1 id="title" class="margin-top">
+                <%=name %>
+            </h1>
+            <h2>Gérez vos projets
+                <span class="highlight">facilement</span>.
+            </h2>
+
+            <div class="wrap">
+
+                <span class="help">
+                
+                  <span class="txt">Besoin d'aide ?</span>
+                </span>
+
+                <div class="help-panel">
+
+                    <div id="help-panel">
+                        <h1>
+                            <span class="h1-txt">Besoin d'aide ?</span>
+                            <span class="Collapse-Help">
+                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                        </h1>
+
+                        <div class="help-panel-content">
+                            <p>
+
+                                S'il vous plaît écrivez vos questions ci-dessous
+                            </p>
+                            <fieldset>
+                                <input type="email" placeholder="votre email">
+                                <textarea id="textarea" placeholder="Write Your Message"></textarea>
+                            </fieldset>
+                            <a href="javascript:void(0)" class="action-button">Submit</a>
+                        </div>
+
+                    </div>
+
+                    <div id="ThankYou">
+
+                        <h1>
+                            <span class="h1-txt">Thank You!</span>
+                            <span class="Collapse-Help">
+                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                        </h1>
+
+                        <div class="help-panel-content">
+                            <h2>
+                                Thank You!
+                            </h2>
+                            <p>
+                                for submitting your queries. Our represntative will respond you shortly.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="background"></div>
+        <div class="container" style="display: flex;">
+            <div class="c1" style="z-index: 1;">
+
+                <div class="c11">
+
+                    <!-- main codes start -->
+                    <div class="calendar1">
+                        <p id="month"></p>
+                        <p id="day"></p>
+                        <p id="num"></p>
+                        <p id="year"></p>
+                    </div>
+                    <div class="time">
+                        <h6>Heure (Paris)</h6>
+                        <p id="h"></p>
+                    </div>
+                    <!-- main codes end -->
+
+                </div>
+                <div id="left">
+                    <h4 class="s1class" style="left: 57%;"><span>Je</span><span class="su"> m'inscris</span>
+                    </h4>
+                </div>
+                <div id="right">
+                    <h4 class="s2class" style="margin-right: -7%;"><span>Se</span><span class="su">connecter</span></h4>
+                </div>
+            </div>
+            <div class="" style="display: flex; transform: translateX(70px); width: 300px; overflow: hidden; transition: 0.5s;">
+                <div class="toggleslide" style="display: flex;">
+                    <div class="c2" style="position: relative; left: 0; min-width: 300px; z-index: 1;">
+                        <% if(code==false){ %>
+
+
+
+                            <!-- signup form -->
+                            <% if(invalid==true){ %>
+                                <!-- <p style="color:red">nom d'utilisateur ou mot de passe invalide</p> -->
+                                <% } %>
+
+
+                                    <form class="signup" id="singinform" action="/loginProcess" method="POST" id="signup">
+
+                                        <h4 class="signup1">S'IDENTIFIER</h4>
+                                        <p class="p20">
+                                            <b>Ha, te revoilà ! </b> <br> <span class="shello">Nous sommes si heureux de
+                                                te
+                                                revoir ! </span>
+                                        </p>
+                                        <br>
+
+                                        <div class="container2" style="background: #f6f7f9;">
+                                            <input type="text" placeholder="username" id="username" name="username" class="inputlogin" value="sau3334">
+                                        </div>
+
+                                        <div class="container2">
+                                            <input type="password" placeholder="Password" id="password" name="password" class="inputlogin" autocomplete='off' value="123">
+                                            <div id="eye-wrapper" onclick="toggle()">
+                                                <svg id="open" width="25" height="25">
+                                                    <g stroke="#7D4262" stroke-miterlimit="10">
+                                                        <path
+                                                            d="M21.632 12.5a9.759 9.759 0 01-18.264 0 9.759 9.759 0 0118.264 0z"
+                                                            fill="none" />
+                                                        <circle cx="12.5" cy="12.5" r="3" fill="#7D4262" />
+                                                        <path fill="none"
+                                                            d="M12.5 5v1-4M9.291 6.337L7.709 2.663M15.709 6.337l1.582-3.674" />
+                                                    </g>
+                                                </svg>
+                                                <svg id="close" width="25" height="25">
+                                                    <g fill="none" stroke="#7D4262" stroke-miterlimit="10">
+                                                        <path
+                                                            d="M21.632 12.5a9.759 9.759 0 01-18.264 0M12.5 19.5v-1 4M9.291 18.163l-1.582 3.674M15.709 18.163l1.582 3.674" />
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <a class="button-forgrt p-modal"><img src="https://img.icons8.com/ios-glyphs/16/000000/help.png" /> Forget password?
+                                        </a>
+                                        <br>
+                                        <button class="button">Se connecter</button>
+                                        <% if(invalid==true){ %>
+                                            <p style="color:#ff5c4b; font-size:-2.7em;font-size: 8px ;margin-top: 41px;font-weight: 900;padding: 0 28px 0px;">
+                                                Pseudonyme ou mot de passe invalide</p>
+                                            <% } %>
+                                    </form>
+
+                                    <form id="signupform" class="signin" action="/signupProcess" method="POST">
+
+                                        <h4 class="signup1"> S'INSCRIRE</h4>
+                                        <p class="p20">
+                                            <b> Commençons l'aventure</b> <br> <span class="shello"> Bienvenue sur
+                                                NetodoBook
+                                                !</span>
+                                        </p>
+                                        <br>
+
+                                        <div class="container2" style="background: #f6f7f9">
+                                            <input name="username" id="username" type="text" placeholder="pseudo*" class="inputlogin" />
+                                        </div>
+                                        <div class="container2" style="background: #f6f7f9">
+                                            <input name="email" id="email" type="text" placeholder="Email*" class="inputlogin" />
+                                        </div>
+                                        <div class="container2">
+                                            <input type="password" placeholder="Password" id="password-signup" name="password" class="inputlogin" autocomplete='off' style="width: 220px !important;">
+                                            <div id="eye-wrapper-signup" onclick="toggle2()" name="password">
+                                                <svg id="open-signup" width="25" height="25">
+                                                    <g stroke="#7D4262" stroke-miterlimit="10">
+                                                        <path
+                                                            d="M21.632 12.5a9.759 9.759 0 01-18.264 0 9.759 9.759 0 0118.264 0z"
+                                                            fill="none" />
+                                                        <circle cx="12.5" cy="12.5" r="3" fill="#7D4262" />
+                                                        <path fill="none"
+                                                            d="M12.5 5v1-4M9.291 6.337L7.709 2.663M15.709 6.337l1.582-3.674" />
+                                                    </g>
+                                                </svg>
+                                                <svg id="close-signup" width="25" height="25">
+                                                    <g fill="none" stroke="#7D4262" stroke-miterlimit="10">
+                                                        <path
+                                                            d="M21.632 12.5a9.759 9.759 0 01-18.264 0M12.5 19.5v-1 4M9.291 18.163l-1.582 3.674M15.709 18.163l1.582 3.674" />
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <button class="button">S'enregistrer</button>
+
+                                        <br><br><br><br>
+
+                                    </form>
+                    </div>
+
+                    <% }else{ %>
+
+                        <script>
+                            var user_id = '<%= user_id %>';
+
+                            localStorage.setItem('user_id', user_id);
+                        </script>
+
+                        <form class="signup" action="/codeProcess" method="POST">
+
+                            <h4 class="signup1">Confirmation Code</h4>
+                            <p class="p20">
+                                <b>Que Veut Dire!</b> <br> <span class="shello"> VÉRIFIER VOTRE BOÎTE DE RÉCEPTION</span>
+                            </p>
+                            <br> <br> <br>
+
+                            <input name="confirmation_code" type="text" placeholder="Confirmation Code*" class="username h50" />
+                            <br>
+
+                            <button class="btn" type="submit">Commencer</button>
+
+
+                        </form>
+                        <br>
+                        <a class="confirmcode" href="#">Si vous n’avez pas reçu votre e-mail de vérification</a>
+
+                </div>
+
+                <% } %>
+
+
+                    <!-- this need to be do -->
+                    <div id="openModal" class="modalbg" style="position: relative; left: 20px; background: none; max-width: 300px; pointer-events: auto;">
+                        <div class="dialog" style="box-shadow: none; width: 100%; top: 0; margin: 0; height: 100%; background: white !important;">
+
+                            <h4 style="color: black;text-shadow: none;font-size: 24px;/* font-family:auto; *//* padding-left: 17px; *//* margin-top: 35px; */color: #060c21;font-size: 30px;text-align: center;margin-bottom: 13px;">
+                                RÉINITIALISER</h4>
+                            <p class="forgettext" style="padding: 0 20px;">
+                                <b>HA, TE REVOILA !</b> <br> <span class="shello"> NOUS SOMMES SI HEUREUX DE TE
+                                    REVIOR !</span>
+                            </p>
+                            <section>
+                                <form id="forgetFORM" action="/forgetProcess" method="POST">
+                                    <div class="captchaField" style="border: none;">
+                                        <span id="SuccessMessage" class="success">Thanks! , you can now submit
+                                            the
+                                            form!</span>
+                                        <div class="container2" style="background: #f6f7f9; margin:10px 0px;">
+                                            <input name="email" id="email" type="text" placeholder="Email*" class="inputlogin" data-forget="forget" />
+                                        </div>
+
+                                        <input type="text" id="UserCaptchaCode" class="CaptchaTxtField" placeholder='Enter Captcha' style="width: 100%; padding: 15px 20px; font-size: 15px; border:none; background: #f6f7f9;">
+                                        <span id="WrongCaptchaError" class="error"></span>
+                                        <div class='CaptchaWrap' style="display: flex; align-items: center;">
+                                            <div id="CaptchaImageCode" class="CaptchaTxtField" style="width: 100%; ">
+                                                <canvas id="CapCode" class="capcode" width="100%" height="80"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="btns" style="display: flex; align-items: center; margin: 10px 0;">
+                                            <input type="button" class="ReloadBtn" onclick='CreateCaptcha();' style="position: static; margin-right: 10px;">
+                                            <button type="button" class="btnSubmit" onclick="CheckCaptcha(); Submit();" name="forgetPassword" style="left:0; top:0; margin-top: 0;">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+
+                        </div>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="loader-wrapper">
+        <!-- loader animation -->
+        <div id="loader">
+            <div class="circle-big"></div>
+            <div class="circle-top-left"></div>
+            <div class="circle-top-right"></div>
+            <div class="circle-bottom-left"></div>
+            <div class="circle-bottom-right"></div>
+            <div class="circle-eye"></div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/clock.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="/script123.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1075 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    body {
+        overflow: inherit;
+    }
+    #title2 {
+        top: -208px;
+        font-size: 33px;
+    }
+    .container_card {
+        left: 20px;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    section.card {
+        height: 450px;
+        margin: 0 0 50px;
+        width: 85%;
+    }
+    .look2 {
+        right: -80px;
+        position: fixed;
+    }
+    #container_card {
+        box-shadow: none;
+        overflow-y: scroll;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 50px;
+        bottom: 80px;
+    }
+    .card_inner__header {
+        height: 190px;
+    }
+    .card_inner__circle {
+        top: 152px;
+    }
+    /******** calender table ******/
+    .calendar {
+        max-width: 85%;
+        float: left;
+    }
+    .look2.table-calender {
+        right: -125px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 31px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -83px;
+    }
+    .container.todolist-container .overlay {
+        width: 100%;
+        /* padding: 0px; */
+        top: -90px;
+        left: 8%;
+    }
+    .btn-toggle-modal {
+        bottom: 10px;
+        left: auto;
+        width: 50px;
+        height: 50px;
+        right: 0;
+    }
+    .task {
+        width: 100%;
+    }
+    /******* dash ******/
+    .dashboard.dash_dashboard .dashboard-sidebar {
+        width: 100%;
+    }
+    .dashboard.dash_dashboard {
+        width: 100%;
+        margin: 0px;
+    }
+    #container-dash .section.desh_home #title {
+        top: 0 !important;
+        font-size: 33px;
+        position: static;
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    #container-dash .section.desh_home h2 {
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    .dashboard-header__search input {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 16px;
+        margin: 0 0 10px !important;
+    }
+    .container-dash.search-container-men {
+        margin: 90px 0px 0 !important;
+        float: left;
+        width: 100%;
+        padding: 0 10px 0 50px;
+    }
+    .look.deshutilisation {
+        margin: 0 8px 0 0;
+    }
+    #progressbar {
+        padding: 0;
+    }
+    #progressbar li {
+        font-size: 11px;
+    }
+    .checkboxs span {
+        padding: 0 0;
+    }
+    /*** home ****/
+    .c2 {
+        width: 70%;
+        position: relative;
+        left: 0;
+        display: inline-block;
+        float: left;
+        margin: 60px 0 0 80px;
+    }
+    .c1 {
+        width: 70%;
+        margin: 0 0 0 80px;
+    }
+    .c11 {
+        width: 70%
+    }
+    #left,
+    #right {
+        width: 136px;
+    }
+    .man-dashpage.ds1s {
+        box-shadow: none !important;
+    }
+    h2.steps-count {
+        padding: 40px 17px 30px;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 576px) {
+    body {
+        overflow: inherit;
+    }
+    #title2 {
+        top: -208px;
+        font-size: 33px;
+    }
+    .container_card {
+        left: 20px;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    section.card {
+        height: 450px;
+        margin: 0 0 50px;
+        width: 85%;
+    }
+    .look2 {
+        right: -80px;
+        position: fixed;
+    }
+    #container_card {
+        box-shadow: none;
+        overflow-y: scroll;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 50px;
+        bottom: 80px;
+    }
+    .card_inner__header {
+        height: 190px;
+    }
+    .card_inner__circle {
+        top: 152px;
+    }
+    /******** calender table ******/
+    .calendar {
+        max-width: 90%;
+        float: left;
+    }
+    .look2.table-calender {
+        right: -120px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 31px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -83px;
+    }
+    .container.todolist-container .overlay {
+        width: 100%;
+        /* padding: 0px; */
+        top: -90px;
+        left: 8%;
+    }
+    .btn-toggle-modal {
+        bottom: 10px;
+        left: auto;
+        width: 50px;
+        height: 50px;
+        right: 0;
+    }
+    .task {
+        width: 100%;
+    }
+    /******* dash ******/
+    .dashboard.dash_dashboard .dashboard-sidebar {
+        width: 100%;
+    }
+    .dashboard.dash_dashboard {
+        width: 100%;
+        margin: 0px;
+    }
+    #container-dash .section.desh_home #title {
+        top: 0 !important;
+        font-size: 33px;
+        position: static;
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    #container-dash .section.desh_home h2 {
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    .dashboard-header__search input {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 16px;
+        margin: 0 0 10px !important;
+    }
+    .container-dash.search-container-men {
+        margin: 40px 0px 0 0;
+        width: 100%;
+        padding: 10px 18px 0 68px;
+        float: left;
+    }
+    .look.deshutilisation {
+        margin: 0 15px 0 0;
+    }
+    #progressbar {
+        padding: 0;
+    }
+    #progressbar li {
+        font-size: 13px;
+    }
+    .checkboxs span {
+        padding: 0 0;
+    }
+    /*** home ****/
+    .c2 {
+        width: 70%;
+        position: relative;
+        left: 0;
+        display: inline-block;
+        float: left;
+        margin: 60px 0 0 80px;
+    }
+    .c1 {
+        width: 70%;
+        margin: 0 0 0 80px;
+    }
+    .c11 {
+        width: 70%
+    }
+    #left,
+    #right {
+        width: 136px;
+    }
+    .man-dashpage.ds1s {
+        box-shadow: none !important;
+    }
+}
+
+@media only screen and (min-device-width: 578px) and (max-device-width: 767px) {
+    #title2 {
+        top: -208px;
+        font-size: 33px;
+    }
+    .container_card {
+        left: 20px;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    section.card {
+        height: 450px;
+        margin: 0 0 50px;
+        width: 85%;
+    }
+    .look2 {
+        right: -130px;
+        position: fixed;
+        font-size: 40px;
+    }
+    #container_card {
+        box-shadow: none;
+        overflow-y: scroll;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 50px;
+        bottom: 80px;
+    }
+    .card_inner__header {
+        height: 190px;
+    }
+    .card_inner__circle {
+        top: 152px;
+    }
+    /******** calender table ******/
+    .calendar {
+        max-width: 85%;
+        float: left;
+    }
+    .look2.table-calender {
+        right: -105px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 31px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -83px;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 31px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -83px;
+    }
+    .container.todolist-container .overlay {
+        width: 100%;
+        /* padding: 0px; */
+        top: -90px;
+        left: 9%;
+    }
+    .btn-toggle-modal {
+        bottom: 10px;
+        left: auto;
+        width: 50px;
+        height: 50px;
+        right: 0;
+    }
+    .task {
+        width: 100%;
+    }
+    /******* dash ******/
+    .dashboard.dash_dashboard .dashboard-sidebar {
+        width: 100%;
+    }
+    .dashboard.dash_dashboard {
+        width: 100%;
+        margin: 0px;
+    }
+    #container-dash .section.desh_home #title {
+        top: 0 !important;
+        font-size: 45px;
+        position: static;
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    #container-dash .section.desh_home h2 {
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    .dashboard-header__search input {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 16px;
+        margin: 0 0 10px !important;
+    }
+    .container-dash.search-container-men {
+        margin: 40px 0px 0 !important;
+        float: left;
+        width: 100%;
+        padding: 0 10px 0 80px;
+    }
+    .look.deshutilisation {
+        margin: 0 15px 0 0;
+    }
+    /*** home ****/
+    .c2 {
+        width: 250px;
+        display: inline-block;
+        float: left;
+    }
+    .c1 {
+        width: 250px;
+        margin: 0 0 0 0px;
+    }
+    .c11 {
+        width: 250px;
+    }
+    #left,
+    #right {
+        width: 122px;
+    }
+    .man-dashpage.ds1s {
+        box-shadow: none !important;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 800px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 400px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .calendar {
+        max-width: 95%;
+        float: left;
+    }
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 45px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -60px;
+    }
+    .container.todolist-container .overlay {
+        width: 100%;
+        /* padding: 0px; */
+        top: -90px;
+        left: 9%;
+    }
+    .btn-toggle-modal {
+        bottom: 10px;
+        left: auto;
+        width: 50px;
+        height: 50px;
+        right: 0;
+    }
+    .task {
+        width: 100%;
+    }
+    /******* dash ******/
+    .dashboard.dash_dashboard .dashboard-sidebar {
+        width: 100%;
+    }
+    .dashboard.dash_dashboard {
+        width: 100%;
+        margin: 0px;
+    }
+    #container-dash .section.desh_home #title {
+        top: 0 !important;
+        font-size: 50px;
+        position: static;
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    #container-dash .section.desh_home h2 {
+        margin: 0px;
+        padding: 0 0 0 20px;
+    }
+    .dashboard-header__search input {
+        padding: 20px;
+    }
+    .container-dash.search-container-men {
+        margin: 50px 0px 0 !important;
+        float: left;
+        width: 100%;
+        padding: 0 10px 0 90px;
+    }
+    .look.deshutilisation {
+        margin: 0 25px 0 0;
+    }
+}
+
+@media only screen and (min-device-width: 801px) and (max-device-width: 992px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 400px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .calendar {
+        max-width: 95%;
+        float: left;
+    }
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .todolist-add {
+        width: 100% !important;
+        height: 720px !important;
+    }
+    .container.todolist-container {
+        top: calc(14% - 0px);
+        left: calc(0% - -15px);
+        border-radius: 15px 15px 15px 15px;
+        width: 80%;
+    }
+    .margin-top.netodo_book {
+        position: initial !important;
+        top: 0;
+        margin: 0px;
+        font-size: 45px;
+        padding: 0 0 16px;
+    }
+    .section.sectioset {
+        margin: 0px;
+        padding: 10px 20px;
+    }
+    .look.table-calender {
+        right: -60px;
+    }
+    .container.todolist-container .overlay {
+        width: 100%;
+        /* padding: 0px; */
+        top: -90px;
+        left: 9%;
+    }
+    .btn-toggle-modal {
+        bottom: 10px;
+        left: auto;
+        width: 50px;
+        height: 50px;
+        right: 0;
+    }
+    .task {
+        width: 100%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}
+
+@media only screen and (min-device-width: 993px) and (max-device-width: 1024px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 400px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1100px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 450px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}
+
+@media only screen and (min-device-width: 1101px) and (max-device-width: 1200px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 450px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+    .dashboard {
+        transform: translate(-15%, 4%);
+    }
+}
+
+@media only screen and (min-device-width: 1201px) and (max-device-width: 1300px) {
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}
+
+
+/******* dash ******/
+
+.man-dashpage {
+    /* width: 62% !important; */
+    /* margin: 13% auto 0 !important; */
+}
+
+.dashboard-list__item {
+    padding: 20px;
+}
+
+.dashboard-list__item h2 {
+    font-size: 17px;
+    margin: 0 0 11px !important;
+}
+
+.dashboard-preview__header {
+    margin: 0 0 6.5rem;
+}
+
+.section.desh_home {
+    margin: 0;
+}
+
+h1.look.deshutilisation {
+    right: -68px;
+}
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1100px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 450px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 62% !important;
+        /* margin: 13% auto 0 !important; */
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}
+
+@media only screen and (min-device-width: 1101px) and (max-device-width: 1200px) {
+    section.card {
+        width: 30%;
+        margin: 0px 0 0 15px;
+        height: 450px;
+    }
+    .container_card {
+        left: 15px;
+        width: 93vw;
+    }
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    .menu-item,
+    .menu-open-button {
+        right: 40px;
+        bottom: 40px;
+    }
+    #container_card {
+        width: 100%;
+    }
+    /******** calender table ******/
+    .look2.table-calender {
+        right: -155px;
+        font-size: 33px;
+        top: 50%;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+    .dashboard {
+        transform: translate(-15%, 4%);
+    }
+}
+
+@media only screen and (min-device-width: 1201px) and (max-device-width: 1300px) {
+    .card_inner__content .price {
+        font-size: 40px;
+    }
+    /******* todolist *********/
+    .container.todolist-container .overlay {
+        width: auto;
+        padding: 0px;
+        top: -90px;
+        left: 25%;
+    }
+    /******* dash ******/
+    .man-dashpage {
+        width: 95% !important;
+        margin: 13% auto 0 !important;
+    }
+    .dashboard-list__item {
+        padding: 20px;
+    }
+    .dashboard-list__item h2 {
+        font-size: 17px;
+        margin: 0 0 11px !important;
+    }
+    .dashboard-preview__header {
+        margin: 0 0 6.5rem;
+    }
+    .section.desh_home {
+        margin: 0;
+    }
+    h1.look.deshutilisation {
+        right: -68px;
+    }
+}

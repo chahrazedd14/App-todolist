@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../scss/pomodoro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <div class="section">
+            <h1 id="title" class="margin-top">netodoBook</h1>
+            <h2>Gérez vos projets
+                <span class="highlight">facilement</span>.
+
+
+            </h2>
+
+
+            <!-- <h1 class="look">guide utilisation </h1> -->
+
+            <div class="wrap">
+
+                <span class="help">
+                
+                  <span class="txt">Besoin d'aide ?</span>
+                </span>
+
+                <div class="help-panel">
+
+                    <div id="help-panel">
+                        <h1>
+                            <span class="h1-txt">Besoin d'aide ?</span>
+                            <span class="Collapse-Help">
+                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </span>
+                        </h1>
+
+                        <div class="help-panel-content">
+                            <div class="ListWrapper">
+                                <div class="ListHeader">
+                                    <h3>Meine Liste</h3>
+                                    <div>
+                                        <button data-action="do_delete"><i class="material-icons">delete</i></button>
+                                        <button data-action="toggle_edit"><i class="material-icons">edit</i></button>
+                                    </div>
+                                </div>
+                                <div class="ListArea">
+                                    <div><i class="material-icons">face</i>Lies Fleischer</div>
+                                    <div><i class="material-icons">face</i>Tabetha Vadnais</div>
+                                    <div><i class="material-icons">face</i>Edmond Riggie</div>
+                                    <div><i class="material-icons">face</i>Mireille Foushee</div>
+                                    <div><i class="material-icons">face</i>Rossana Mingle</div>
+                                    <div><i class="material-icons">face</i>Siobhan Bravo</div>
+                                    <div><i class="material-icons">face</i>Briana Chaparro</div>
+                                    <div><i class="material-icons">face</i>Albertina Shimer</div>
+                                    <div><i class="material-icons">face</i>Isreal Cupit</div>
+                                    <div><i class="material-icons">face</i>Marco Lindstedt</div>
+                                    <div><i class="material-icons">face</i>Cristy Jolley</div>
+                                    <div><i class="material-icons">face</i>Roberto Stumpff</div>
+                                    <div><i class="material-icons">face</i>Cleora Bowles</div>
+                                    <div><i class="material-icons">face</i>Inocencia Grothe</div>
+                                    <div><i class="material-icons">face</i>Marguerita Eddins</div>
+                                    <div><i class="material-icons">face</i>Alicia Funes</div>
+                                </div>
+                            </div>
+                            <!-- <a href="javascript:void(0)" class="action-button">Submit</a> -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="background"></div>
+        <div class="container">
+
+            <div id="root">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+
+    <script src="../js/pomodoro.js"></script>
+
+    <script>
+        (function($) {
+            var list = {
+                $wrapper: null,
+                $items: null,
+                $checkboxes: null,
+                $trash: null,
+                editing: false,
+
+                init: function() {
+                    list.$wrapper = $(".ListWrapper");
+                    list.$trash = $(
+                        '.ListHeader button[data-action="do_delete"]',
+                        list.$wrapper
+                    );
+                    list.$items = $(".ListArea > div", list.$wrapper);
+                    var input_count = 0;
+                    list.$items.each(function() {
+                        $(
+                            '<div class="ListCheckbox"><input id="ListInput' +
+                            input_count +
+                            '" type="checkbox"><label for="ListInput' +
+                            input_count +
+                            '"></label></div>'
+                        ).appendTo($(this));
+                        input_count++;
+                    });
+                    list.$checkboxes = $(".ListCheckbox", list.$items);
+
+                    $(".ListHeader button", list.$wrapper).on("click", function() {
+                        list[$(this).attr("data-action")]();
+                    });
+                },
+                toggle_edit: function() {
+                    if (list.editing) {
+                        $("input", list.$checkboxes).prop("checked", false);
+                        list.$trash.removeClass("Visible");
+                        list.$checkboxes.removeClass("Visible");
+                        list.editing = false;
+                    } else {
+                        list.$trash.addClass("Visible");
+                        list.$checkboxes.addClass("Visible");
+                        list.editing = true;
+                    }
+                },
+                do_delete: function() {
+                    list.$checkboxes.each(function() {
+                        $this = $(this);
+                        if ($("input", $this).prop("checked")) {
+                            $this.parent().remove();
+                        }
+                    });
+                    list.toggle_edit();
+                }
+            };
+            $(document).ready(list.init);
+        })(jQuery);
+    </script>
+    <script>
+        $(".help").on("click", function() {
+            $(".help-panel").animate({
+                    width: "90%",
+                },
+                500,
+                function() {
+                    $(".help-panel").animate({
+                            height: "400px",
+                        },
+                        500
+                    );
+                }
+            );
+            setTimeout(function() {
+                $("#help-panel").animate({
+                        opacity: "1.0",
+                    },
+                    250
+                );
+            }, 340);
+        });
+
+        $(".Collapse-Help").on("click", function() {
+            $(".help-panel").animate({
+                    height: "180px",
+                },
+                500,
+                function() {
+                    $(".help-panel").animate({
+                            width: "0px",
+                        },
+                        500
+                    );
+
+                    $("#help-panel").show();
+                    $("#ThankYou").hide();
+                }
+            );
+
+            setTimeout(function() {
+                $("#help-panel").animate({
+                        opacity: "0",
+                    },
+                    250
+                );
+            }, 100);
+        });
+
+        $(".action-button").on("click", function() {
+            var isValid = false;
+
+            if (
+                $("#textarea").val() == "" ||
+                $("#textarea").val() == null ||
+                $("#textarea").val() == "undefined"
+            ) {
+                $("#textarea").addClass("error").focus();
+                isValid = false;
+                return isValid;
+            } else {
+                isValid = true;
+                $("#textarea").removeClass("error");
+                $("#ThankYou").fadeIn(500);
+                $("#help-panel").fadeOut(100);
+                setTimeout(function() {
+                    $("#textarea").val("");
+                }, 150);
+                return isValid;
+            }
+        });
+    </script>
+</body>
+
+</html>

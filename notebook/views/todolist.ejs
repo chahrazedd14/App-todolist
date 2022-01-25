@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../scss123/style.css">
+    <link rel="stylesheet" href="../css/tabbar.css">
+    <link rel="stylesheet" href="../css/alert.css">
+
+</head>
+
+
+
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div id="loader">
+                <div class="circle-big"></div>
+                <div class="circle-top-left"></div>
+                <div class="circle-top-right"></div>
+                <div class="circle-bottom-left"></div>
+                <div class="circle-bottom-right"></div>
+                <div class="circle-eye"></div>
+            </div>
+
+            <!-- loader animation -->
+
+        </div>
+
+    </div>
+
+    <div id="container_card" class="man-dashpage">
+        <div class="section desh_home">
+            <div class="titlename">
+                <h1 id="title" class="margin-top net_do_book">netodoBook</h1>
+                <h2>Gérez vos projets
+                    <span class="highlight">facilement</span>.
+                </h2>
+            </div>
+            <div class="look2 table-calender1">
+                <div class="social1">
+                    <div class="icons1">
+                    <a href="/nav">
+                            <ion-icon class="icones12" name="grid-outline"></ion-icon>
+                    </a>
+                        <a href="/calender">
+                            <ion-icon class="icones12" name="calendar-number-outline"></ion-icon>
+                        </a>
+                        <a href="/todo">
+                            <ion-icon class="icones12" name="create-outline"></ion-icon>
+                        </a>
+                        <a href="/pomodoro">
+                            <ion-icon class="icones12" name="stopwatch-outline"></ion-icon>
+                        </a>
+                        <a href="/dash">
+                            <ion-icon class="icones12" name="cog-outline"></ion-icon>
+                        </a>
+                        <ion-icon class="icones12 rerech" name="refresh-outline"></ion-icon>
+                        <a href="/index">
+                            <ion-icon class="icones12" name="log-in-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="background"></div>
+        <div class="container">
+            <div class="app">
+                <div class="header">
+                    <h1>Nouvelle tache</h1>
+                </div>
+                <input id="ipt-toggle-modal" type="checkbox" />
+                <label class="btn-toggle-modal" for="ipt-toggle-modal"><span>+</span></label>
+
+
+
+                <div class="notification" id="notification">Task edited successfully</div>
+
+
+
+                <div class="tasks">
+
+
+
+
+                    <div class="grid" id="container">
+                        <% cnt=0 %>
+                            <% tasks.forEach(function(task){ %>
+                                <% cnt++ %>
+                                    <% if(cnt!=2){ %>
+                                        <div class="grid-item task" data-index="2" id="task_<%= task.id %>">
+                                            <div class="task-header">
+                                                <div class="left-side">
+                                                    <ion-icon name="flame" data-priority="high"></ion-icon><span class="task-title">
+                                                        <%= task.task_title %>
+                                                    </span>
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="btn-edit-task" title="Edit task" onclick="openEditModal('<%= task.id %>');">
+                                                        <ion-icon name="create"></ion-icon>
+                                                    </div>
+                                                    <div class="btn-complete-task" title="Complete task" onclick="completeTask123('<%= task.id %>',this)">
+                                                        <ion-icon name="checkmark"></ion-icon>
+                                                    </div>
+                                                    <!-- <div class="btn-remove-task delete" title="Remove task a" > -->
+                                                <div class="btn-remove-task" title="Remove task b" >
+                                                    <ion-icon name="trash" id="remove_<%= task.id %>" onclick="removeTask('<%= task.id %>')"></ion-icon>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="task-body"><span class="task-description">
+                                                    <%= task.task_description %>
+                                                </span></div>
+                                            <div class="task-footer"><span class="task-status">Task <%= task.task_status
+                                                        %></span><span class="task-timestamp">
+                                                    <%= task.task_timestamp %>
+                                                </span></div>
+                                        </div>
+
+                                        <% }else{ %>
+
+                                            <div class="grid-item task" data-index="2" id="task_<%= task.id %>">
+                                                <div class="task-header">
+                                                    <div class="left-side">
+                                                        <ion-icon name="flame" data-priority="high"></ion-icon><span class="task-title">
+                                                            <%= task.task_title %>
+                                                        </span>
+                                                    </div>
+                                                    <div class="right-side">
+                                                        <div class="btn-edit-task" title="Edit task" onclick="openEditModal('<%= task.id %>');">
+                                                            <ion-icon name="create"></ion-icon>
+                                                        </div>
+                                                        <div class="btn-complete-task" title="Complete task" onclick="completeTask123('<%= task.id %>',this)">
+                                                            <ion-icon name="checkmark"></ion-icon>
+                                                        </div>
+                                                        <!-- <div class="btn-remove-task delete" title="Remove task b" > -->
+                                                        <div class="btn-remove-task" title="Remove task b" >
+                                                            <ion-icon name="trash" id="remove_<%= task.id %>"  onclick="removeTask('<%= task.id %>')"></ion-icon>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="task-body"><span class="task-description">
+                                                        <%= task.task_description %>
+                                                    </span></div>
+                                                <div class="task-footer"><span class="task-status">Task <%=
+                                                            task.task_status %></span><span class="task-timestamp">
+                                                        <%= task.task_timestamp %>
+                                                    </span></div>
+                                            </div>
+
+
+                                            <% } %>
+
+                                                <% }) %>
+
+
+                    </div>
+                </div>
+                <div class="overlay">
+                    <p>Add task</p><span>Fill at least the title of the task, description is not required &#128578;</span>
+
+                    <form class="modal" id="formxx">
+                        <input type="hidden" name="id" id="id" value="">
+                        <label for="task_title">TitRE </label>
+                        <input id="task_title" type="text" name="task_title" />
+                        <label for="task_desc">Description</label>
+                        <textarea id="task_desc" rows="3" name="task_desc"></textarea><span> Importance</span>
+                        <div class="priority">
+                            <input id="high" type="radio" name="task_priority" value="high" />
+                            <label for="high">urgent</label>
+                            <input id="medium" type="radio" name="task_priority" value="medium" />
+                            <label for="medium">important</label>
+                            <input id="low" type="radio" name="task_priority" value="low" checked="checked" />
+                            <label for="low">non-important</label>
+                        </div>
+                        <div class="modal-btns">
+                            <button class="btn-add-task123" type="button" onclick="addTodo();">Add</button>
+                            <div class="btn-cancel-task">Cancel</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script src="../js/todolist.js"></script>
+    <script src="../js/alert.min.js"></script>
+
+    <script>
+        $('#notification').html('<%= msg %>');
+        document.querySelector('.notification').classList.add('-is-shown');
+        setTimeout(() => {
+            document.querySelector('.notification').classList.remove('-is-shown');
+        }, 1000);
+    </script>
+    <script>
+        $(".rerech").on('click', function() {
+            $(".loader-wrapper").fadeIn("fast");
+            setTimeout(function() {
+                $(".loader-wrapper").fadeOut("slow");
+            }, 3000);
+        });
+
+        setTimeout(function() {
+            $(".loader-wrapper").fadeOut("slow");
+        }, 3000);
+    </script>
+    <script>
+        function confirmalertm() {
+
+            var userselection = confirm("Are you sure you want to delete?");
+
+            if (userselection == true) {
+                alert();
+            } else {
+                alert(1);
+            }
+        }
+
+      
+    </script>
+</body>
+
+</html>

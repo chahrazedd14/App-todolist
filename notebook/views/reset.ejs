@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+    * {
+        box-sizing: border-box;
+    }
+    
+    .loading {
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        position: relative;
+    }
+    
+    .button.loading::after {
+        width: 40px;
+        left: 5px;
+        top: 12px;
+        border-radius: 100%;
+    }
+    
+    .spinner {
+        display: block;
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        top: 8px;
+        left: calc(50% - 17px);
+        background: transparent;
+        box-sizing: border-box;
+        border-top: 4px solid white;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-radius: 100%;
+        animation: spin 0.6s ease-out infinite;
+    }
+    
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+    
+    #container_card {
+        height: 600px;
+        width: 1130px;
+        margin: 4% auto;
+        position: relative;
+        box-shadow: 4px 10px 20px rgb(55 52 73 / 40%);
+    }
+    
+    body {
+        background: #ededed;
+        overflow: hidden;
+        font-family: Nunito, Arial, sans-serif;
+    }
+    
+    #background {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        background: #ff7a6c;
+        -webkit-clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: -1;
+        transition: all 0.8s ease;
+    }
+    
+    #all-done {
+        pointer-events: none;
+        text-indent: -10000px;
+        width: 100%;
+        height: 100%;
+        background: url("tick-done.svg") center 35% no-repeat;
+        position: absolute;
+        -webkit-transition: -webkit-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: -moz-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -ms-transition: -ms-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -o-transition: -o-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -webkit-backface-visibility: hidden;
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        -o-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+    
+    #all-done:after {
+        content: "All done!";
+        font-weight: 100;
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 55%;
+        text-indent: 0;
+    }
+    
+    #all-done.visible {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+    
+    #container {
+        width: 100%;
+        height: 100%;
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        -ms-perspective: 1000px;
+        -o-perspective: 1000px;
+        perspective: 1000px;
+    }
+    
+    .middle {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #form-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .formpassword {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-image: -o-linear-gradient(-89deg, #FFFFFF 0%, #DBDBDB 100%);
+        background-image: -moz-linear-gradient(-89deg, #FFFFFF 0%, #DBDBDB 100%);
+        background-image: -ms-linear-gradient(-89deg, #FFFFFF 0%, #DBDBDB 100%);
+        background-image: linear-gradient(-179deg, #FFFFFF 0%, #DBDBDB 100%);
+        -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 7px 0px rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 7px 0px rgba(255, 255, 255, 0.5);
+        -webkit-transition: -webkit-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: -moz-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -ms-transition: -ms-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -o-transition: -o-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+        -webkit-backface-visibility: hidden;
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        -o-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+    
+    .formpassword.visible {
+        top: 110px;
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+        background: white;
+    }
+    
+    .formpassword.done {
+        top: 110px;
+        pointer-events: none;
+        opacity: 0;
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        -ms-transform: translateX(-20px);
+        -o-transform: translateX(-20px);
+        transform: translateX(-20px);
+        background: white;
+    }
+    
+    label {
+        height: 56px;
+        background-image: -o-linear-gradient(-89deg, #FAFAFA 0%, #EEE 100%);
+        background-image: -moz-linear-gradient(-89deg, #FAFAFA 0%, #EEE 100%);
+        background-image: -ms-linear-gradient(-89deg, #FAFAFA 0%, #EEE 100%);
+        background-image: linear-gradient(-179deg, #FAFAFA 0%, #EEE 100%);
+        height: 56px;
+        display: block;
+        line-height: 56px;
+        font-weight: 600;
+        font-size: 19px;
+        color: #525252;
+        text-align: center;
+        text-shadow: 0px 1px 1px #FFFFFF;
+        border-bottom: 1px solid #FFFFFF;
+        position: relative;
+    }
+    
+    label:after {
+        content: "";
+        border-bottom: 1px solid #FFF;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+    }
+    
+    input[type=password] {
+        height: 38px;
+        line-height: 38px;
+        border-radius: 3px;
+        border: 1px solid #CACACA;
+        background: #FFFFFF;
+        -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+        font-family: Helvetica;
+        font-size: 18px;
+        color: #545454;
+        width: 81%;
+        padding: 0 3% 0 3%;
+        margin: 6.5% 0 0 6.5%;
+    }
+    
+    button[type=submit] {
+        border: none;
+        float: right;
+        margin: 30px 6.5% 0 0;
+        background: #ffdc7b;
+        border-radius: 6px;
+        color: #000;
+        border: 0 none;
+        cursor: pointer;
+        padding: 0px 15px;
+        height: 36px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        /* color: #FFFFFF; */
+        /* text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+        font-weight: 400; */
+        -webkit-transition: background-image 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: background-image 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+        -ms-transition: background-image 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+        -o-transition: background-image 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: background-image 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    button[type=submit][disabled] {
+        /* border: 1px solid #8F8F8F;
+        background-image: -o-linear-gradient(-89deg, #CECECE 0%, #A1A1A1 100%);
+        background-image: -moz-linear-gradient(-89deg, #CECECE 0%, #A1A1A1 100%);
+        background-image: -ms-linear-gradient(-89deg, #CECECE 0%, #A1A1A1 100%);
+        background-image: linear-gradient(-179deg, #CECECE 0%, #A1A1A1 100%); */
+        width: 100px;
+        background: #ffdc7b;
+        color: #000;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+    }
+    
+    input:focus {
+        outline: none !important;
+        border-color: rgb(150, 150, 150);
+        box-shadow: 0 0 10px white;
+    }
+    
+    input[type=text] {
+        cursor: auto;
+        background-position: 100% 50%;
+        background-repeat: no-repeat no-repeat;
+        height: 38px;
+        line-height: 38px;
+        border-radius: 3px;
+        border: 1px solid #CACACA;
+        background: #FFFFFF;
+        -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.33);
+        box-shadow: inset 0px 1px 3px 0px rgb(0 0 0 / 33%);
+        font-family: Helvetica;
+        font-size: 18px;
+        color: #545454;
+        width: 81%;
+        padding: 0 3% 0 3%;
+        margin: 6.5%;
+    }
+    
+    ul {
+        width: 87%;
+        padding: 0;
+        margin: 6.5% 0 0 6.5%;
+        list-style: none;
+    }
+    
+    li {
+        color: #ABABAB;
+        text-shadow: 0px 1px 1px #FFFFFF;
+        font-size: 17px;
+        height: 20px;
+        line-height: 20px;
+        margin: 0 0 0.8em 0;
+        padding: 0 0 0 40px;
+        position: relative;
+        -webkit-transition: color 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: color 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        -ms-transition: color 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        -o-transition: color 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: color 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        -webkit-backface-visibility: visible;
+    }
+    
+    li:after {
+        font-family: FontAwesome;
+        opacity: 1;
+        content: "";
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        -webkit-transition: -webkit-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 100ms ease-out;
+        -moz-transition: -moz-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 100ms ease-out;
+        -ms-transition: -ms-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 100ms ease-out;
+        -o-transition: -o-transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 100ms ease-out;
+        transition: transform 1200ms cubic-bezier(0.19, 1, 0.22, 1), opacity 100ms ease-out;
+        -webkit-transform: scale(1.6);
+        -moz-transform: scale(1.6);
+        -ms-transform: scale(1.6);
+        -o-transform: scale(1.6);
+        transform: scale(1.6);
+        -webkit-backface-visibility: hidden;
+    }
+    
+    li.complete {
+        color: green;
+    }
+    
+    li.complete:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    li:before {
+        top: 0;
+        left: 0;
+        display: inline-block;
+        min-width: 3em;
+        margin: 0 auto;
+        padding: 0 0.4em;
+        text-align: center;
+        border: 1px solid #ABABAB;
+    }
+    
+    li:first-of-type:before {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    
+    li:last-of-type:before {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    
+    #go-back {
+        border: none;
+        background: none;
+        font-size: 13px;
+        color: #808080;
+        line-height: 13px;
+        text-shadow: 0px 1px 1px #FFFFFF;
+        /* float: right; */
+        padding: 0 0 3px 0;
+        margin: 40px 5% 0 0;
+        border-bottom: 1px solid #808080;
+        cursor: pointer;
+    }
+    
+    @media (min-width: 360px) {
+        .formpassword {
+            border-radius: 4px;
+        }
+        label {
+            border-radius: 4px 4px 0 0;
+        }
+        #container {
+            width: 100%;
+            height: 100%;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+        }
+        .top,
+        .left,
+        .right,
+        .bottom {
+            flex: 1 1 auto;
+        }
+        .middle {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -moz-flex-direction: row;
+            -ms-flex-direction: row;
+            -o-flex-direction: row;
+            flex-direction: row;
+            flex: 0 0 auto;
+            width: auto;
+            height: auto;
+        }
+        #form-container {
+            width: 500px;
+            height: 420px;
+            position: relative;
+        }
+        .formpassword {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .formpassword #verify-new-password {
+            height: 72%;
+            top: 14%;
+        }
+    }
+    /* sections */
+    
+    .section {
+        position: absolute;
+        margin-top: 5%;
+        margin-left: 5%;
+        width: 100%;
+        height: 80%;
+    }
+    
+    .rosegold {
+        background: #ce8c91;
+    }
+    
+    .coral {
+        background: #ff7a6c;
+        left: 35px;
+    }
+    
+    .fuschia {
+        background: #a24868;
+        left: 70px;
+    }
+    
+    .black {
+        background: #373449;
+        left: 105px;
+    }
+    /* text-styling */
+    
+    h1 {
+        font-family: "Work Sans", sans-serif;
+        color: #ff7a6c;
+        text-transform: uppercase;
+        font-size: 3.5em;
+        text-shadow: 2px 1px 0px rgba(55, 52, 73, 0.9);
+    }
+    
+    #title {
+        position: absolute;
+        top: -217px;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+        text-transform: uppercase;
+        margin-top: -20px;
+        letter-spacing: 3px;
+        font-family: "Open Sans", sans-serif;
+        color: #373449;
+    }
+    
+    p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        display: inline-block;
+        padding: 0 45px;
+        text-transform: uppercase;
+        color: #373449;
+    }
+    
+    .p20 {
+        padding: 21px !important;
+    }
+    
+    #desc {
+        position: absolute;
+        top: 77%;
+    }
+    
+    .look {
+        position: absolute;
+        color: white;
+        opacity: 1.4;
+        right: -15px;
+        top: 220px;
+        font-size: 1.5em;
+        white-space: nowrap;
+        transform: rotate(90deg);
+    }
+    
+    .highlight {
+        background-color: #ffdc7b;
+    }
+    
+    .margin-top {
+        margin-top: 135px;
+    }
+    
+    .less-margin {
+        margin-top: -35px;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<body>
+    <div id="container_card">
+        <div class="section">
+            <h1 id="title" class="margin-top">netodoBook</h1>
+
+            <h2>Gérez vos projets
+                <span class="highlight">facilement</span>.
+            </h2>
+
+        </div>
+        <div id="background">
+
+        </div>
+        <div id="form-container">
+
+            <div id="all-done">votre mot de passe à été changé avec succès</div>
+
+            <form id="verify-new-password" class="formpassword" action="/resetProcess" method="POST">
+
+                <input type="hidden" name="id" id="id" value="<%= id %>">
+
+
+                <label for="password">Enter the Code</label>
+                <input placeholder="Enter your Code" type="text" id="code" name="code" style="background-attachment: scroll; cursor: auto; background-position: 100% 50%; background-repeat: no-repeat no-repeat;">
+
+                <label for="verify-password">Verify a password</label>
+                <input placeholder="Enter your password again" type="password" id="verify-password" name="confirm_password" style=" background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat no-repeat;">
+                <ul>
+                    <li id="matches-password">Matches new password.</li>
+                </ul>
+
+                <button id="go-back">Go back</button>
+
+                <!-- this need to be do -->
+                <!-- <input type="button" onClick="submit_reset_form();" id="verify-password-submit" value="Confirm password" disabled="disabled">  -->
+                <button type="submit" onClick="submit_reset_form();" id="verify-password-submit" name="resetPassword">Confirm password</button>
+            </form>
+
+            <form id="new-password" class="visible formpassword" method="POST">
+
+
+
+
+                <label for="password">Choisissez un nouveau mot de passe</label>
+                <input placeholder="Enter your password" type="password" id="password" name="password" style="background-attachment: scroll; cursor: auto; background-position: 100% 50%; background-repeat: no-repeat no-repeat;">
+                <ul>
+                    <li id="length">Au moins 8 caractères.</li>
+                    <li id="uppercase">Contient des lettres majuscules.</li>
+                    <li id="lowercase">Contient des lettres minuscules.</li>
+                    <li id="numbers">Contient des nombres.</li>
+                    <li id="punctuation">Contient de la ponctuation.</li>
+                </ul>
+
+                <button type="submit" id="password-submit">Suivant →</button>
+
+                <!-- this need to be do -->
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="./js/password.js"></script>
+
+    <script>
+        function submit_reset_form() {
+            $('#verify-new-password').submit();
+        }
+        // $("#verify-new-password").submit(function (e) { e.preventDefault() });
+        //$("#new-password").submit(function (e) { e.preventDefault() });
+        //verify password-1
+        var forget = $("#verify-password-submit");
+        var spinner = '<span class="spinner"></span>';
+
+        forget.click(function() {
+            console.log("verify");
+            if (!forget.hasClass("loading")) {
+                forget.css({
+                    height: "49px",
+                    margin: "17px 12.5% 0 0",
+                    borderRadius: "50px"
+                })
+                forget.toggleClass("loading").html(spinner);
+            }
+        });
+
+        //reset password-2
+        var forget2 = $("#password-submit");
+        var spinner = '<span class="spinner"></span>';
+
+        forget2.click(function() {
+            console.log("adsfds");
+            if (!forget2.hasClass("loading")) {
+                forget2.css({
+                    height: "49px",
+                    borderRadius: " 50px"
+                })
+                forget2.toggleClass("loading").html(spinner);
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>

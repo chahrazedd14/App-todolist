@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../scss/style2.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../scss/tabbar.css">
+</head>
+
+<body>
+
+
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div id="loader">
+                <div class="circle-big"></div>
+                <div class="circle-top-left"></div>
+                <div class="circle-top-right"></div>
+                <div class="circle-bottom-left"></div>
+                <div class="circle-bottom-right"></div>
+                <div class="circle-eye"></div>
+            </div>
+
+            <!-- loader animation -->
+
+        </div>
+
+    </div>
+
+    <div id="container_card">
+        <div id="background"></div>
+
+        <div class='container_card'>
+            <div class="look2 table-calender">
+                <div class="social1">
+                    <div class="icons1">
+                        <a href="/nav">
+                            <ion-icon class="icones12" name="grid-outline"></ion-icon>
+                        </a>
+                        <a href="/calender">
+                            <ion-icon class="icones12" name="calendar-number-outline"></ion-icon>
+                        </a>
+                        <a href="/todo">
+                            <ion-icon class="icones12" name="create-outline"></ion-icon>
+                        </a>
+                        <a href="">
+                            <ion-icon class="icones12" name="stopwatch-outline"></ion-icon>
+                        </a>
+                        <a href="/dash">
+                            <ion-icon class="icones12" name="cog-outline"></ion-icon>
+                        </a>
+                        <ion-icon class="icones12 rerech" name="refresh-outline"></ion-icon>
+                        <a href="/index">
+                            <ion-icon class="icones12" name="log-in-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <h1 id="title2" class="margin-top">netodoBook</h1>
+            <h2>
+
+                <span class="highlight">Hello!</span>
+            </h2>
+
+            <div class="notification" id="notification">calendar Saved successfully</div>
+            <div class="calendar" id="calendar-app">
+                <div class="calendar--day-view" id="day-view">
+                    <span class="day-view-exit" id="day-view-exit">&times;</span>
+                    <span class="day-view-date" id="day-view-date">MAY 29 2016</span>
+                    <div class="day-view-content">
+                        <div class="day-highlight">
+                            You <span class="day-events" id="day-events">had no events for today</span>. &nbsp;
+                            <span tabindex="0" onKeyUp="if(event.keyCode != 13) return; this.click();" class="day-events-link" id="add-event" data-date>Add a new event?</span>
+                        </div>
+                        <div class="day-add-event" id="add-day-event-box" data-active="false">
+
+
+
+                            <input type="hidden" name="date" id="date" value="">
+                            <div class="row">
+                                <div class="half">
+                                    <label class="add-event-label">
+                                        Name of event
+                                        <input type="text" class="add-event-edit add-event-edit--long"
+                                            placeholder="New event" name="event_name" id="input-add-event-name">
+
+                                    </label>
+                                </div>
+                                <div class="qtr">
+                                    <label class="add-event-label">
+                                        Start Time
+                                        <input type="text" class="add-event-edit" placeholder="8:15"
+                                            name="start_time_data" id="input-add-event-start-time"
+                                            data-options="1,2,3,4,5,6,7,8,9,10,11,12" data-format="datetime">
+                                        <input type="text" class="add-event-edit" placeholder="am"
+                                            id="input-add-event-start-ampm" data-options="a,p,am,pm"
+                                            name="start_time_ampm">
+                                    </label>
+                                </div>
+                                <div class="qtr">
+                                    <label class="add-event-label">
+                                        End Time
+                                        <input type="text" class="add-event-edit" placeholder="9"
+                                            id="input-add-event-end-time" data-options="1,2,3,4,5,6,7,8,9,10,11,12"
+                                            data-format="datetime" name="end_time_data">
+                                        <input type="text" class="add-event-edit" placeholder="am"
+                                            id="input-add-event-end-ampm" data-options="a,p,am,pm" name="end_time_ampm">
+                                    </label>
+                                </div>
+                                <div class="half">
+                                    <button type="button" onclick="submit_event_form();" tabindex="0" id="add-event-save" class="event-btn--save event-btn">save</button>
+                                    <a tabindex="0" id="add-event-cancel" class="event-btn--cancel event-btn">cancel</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="day-events-list" class="day-events-list">
+
+                        </div>
+                        <div class="day-inspiration-quote" id="inspirational-quote">
+                            Every child is an artist. The problem is how to remain an artist once he grows up. –Pablo Picasso
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar--view" id="calendar-view">
+                    <div class="cview__month">
+                        <span class="cview__month-last" id="calendar-month-last">Apr</span>
+                        <span class="cview__month-current" id="calendar-month">May</span>
+                        <span class="cview__month-next" id="calendar-month-next">Jun</span>
+                    </div>
+                    <div class="cview__header">Sun</div>
+                    <div class="cview__header">Mon</div>
+                    <div class="cview__header">Tue</div>
+                    <div class="cview__header">Wed</div>
+                    <div class="cview__header">Thu</div>
+                    <div class="cview__header">Fri</div>
+                    <div class="cview__header">Sat</div>
+                    <div class="calendar--view" id="dates">
+                    </div>
+                </div>
+                <div class="footer">
+                    <span><span id="footer-date" class="footer__link">Today is May 30</span></span>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="../js/calender.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script>
+            $(".rerech").on('click', function() {
+                $(".loader-wrapper").fadeIn("fast");
+                setTimeout(function() {
+                    $(".loader-wrapper").fadeOut("slow");
+                }, 3000);
+            });
+
+            setTimeout(function() {
+                $(".loader-wrapper").fadeOut("slow");
+            }, 3000);
+        </script>
+
+        <script>
+            // initial calendar
+            const calendar = new CalendarApp()
+            const date = new Date()
+
+            
+
+            calendar.showView(date);
+            calendar.addEventListeners();
+            calendar.todayIsSpan.textContent =
+                "Today is " + calendar.months[date.getMonth()] + " " + date.getDate();
+
+
+
+
+            function submit_event_form() {
+
+
+
+                var event_name = $('#input-add-event-name').val();
+                var start_time_data = $('#input-add-event-start-time').val();
+                var start_time_ampm = $('#input-add-event-start-ampm').val();
+                var end_time_data = $('#input-add-event-end-time').val();
+                var end_time_ampm = $('#input-add-event-end-ampm').val();
+                var date = $('#date').val();
+
+
+
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        event_name: event_name,
+                        date: date,
+                        start_time_data: start_time_data,
+                        start_time_ampm: start_time_ampm,
+                        end_time_data: end_time_data,
+                        end_time_ampm: end_time_ampm,
+                    },
+                    url: "/create_event",
+                    success: function(result) {
+                        $('#day-view-exit').click();
+                        $('#notification').addClass('-is-shown');
+                        fetch_data_based_on_date(date);
+
+                        const myTimeout = setTimeout(myGreeting, 2000);
+
+                    }
+                });
+            }
+
+
+            function myGreeting() {
+                     $('#notification').removeClass('-is-shown');
+                }
+
+            function fetch_data_based_on_date(date) {
+
+
+               
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+
+                        date: date,
+
+                    },
+                    url: "/get_event",
+                    success: function(result) {
+
+                        console.log(result);
+
+                        // $('#day-events-list').html(result);
+
+
+                        var ul = document.createElement("ul");
+                        ul.className = "day-event-list-ul";
+                        events = JSON.parse(result);
+                        var _this = this;
+
+
+
+                        events.forEach(function(event) {
+
+                            var end_time = event.end_time;
+
+
+
+                            var idx = event.id;
+                            var li = document.createElement("li");
+                            li.className = "event-dates";
+                            // li.innerHtml
+                            var html =
+                                "<span class='start-time'>" +
+                                event.start_time +
+                                "</span> <small>through</small> ";
+                            html +=
+                                "<span class='end-time'>" +
+                                end_time +
+                                "</span>";
+
+                            html += "<span class='event-name'>" + event.event_name + "</span>";
+
+                            var div = document.createElement("div");
+                            div.className = "event-dates";
+                            div.innerHTML = html;
+
+                            var deleteBtn = document.createElement("span");
+                            var deleteText = document.createTextNode("delete");
+                            deleteBtn.className = "event-delete";
+                            deleteBtn.setAttribute("data-idx", idx);
+                            deleteBtn.appendChild(deleteText);
+                            deleteBtn.setAttribute("onClick", "delete_calendar(" + event.id + ")");
+
+
+                            div.appendChild(deleteBtn);
+
+                            li.appendChild(div);
+                            ul.appendChild(li);
+
+                            console.log(ul);
+                        });
+
+                        $('#day-events-list').html(ul);
+
+                    }
+                });
+
+
+
+            }
+
+
+            function delete_calendar(id) {
+
+                $('#notification').html('Calendar Deleted Successfully');
+
+                
+                $('#notification').addClass('-is-shown');
+
+                const myTimeout = setTimeout(myGreeting, 2000);
+
+                $('#day-view-exit').click();
+
+                
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        id: id,
+
+                    },
+                    url: "/delete_event456",
+                    success: function(result) {
+
+                       
+
+                       
+
+                         
+
+                         
+                    }
+                });
+            }
+        </script>
+
+
+</body>
+
+</html>
+
+</html>
