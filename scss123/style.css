@@ -47,7 +47,6 @@ input[type="radio"]:checked+label:before {
     width: 1029px;
     overflow-y: scroll;
     margin-left: 13px;
-    overflow-x: hidden;
 }
 
 #container::-webkit-scrollbar {
@@ -841,11 +840,11 @@ h4 {
 }
 
 #container_card {
-    height: 618px;
+    height: 680px;
     width: 1230px;
-    margin: 4% auto;
+    margin: 6% auto;
     position: relative;
-    box-shadow: 4px 10px 20px rgb(55 52 73 / 40%);
+    box-shadow: 4px 10px 20px rgba(55, 52, 73, 0.4);
 }
 
 .card {
@@ -1645,14 +1644,14 @@ textarea {
 
 .btn-toggle-modal {
     position: fixed;
-    top: 159px;
-    left: 85.7%;
-    width: 32px;
-    height: 32px;
+    top: 210px;
+    left: 75.7%;
+    width: 40px;
+    height: 40px;
     background: #B7CEE8;
     transform: translateX(-50%);
     border-radius: 50%;
-    /* box-shadow: 0 2px 5px rgb(0 0 0 / 13%); */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.13); */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1671,9 +1670,9 @@ textarea {
 
 .btn-toggle-modal>span {
     color: #fff;
-    font-size: 3.7rem;
+    font-size: 4.7rem;
     margin-left: 0px;
-    margin-top: 0px;
+    margin-top: -3px;
     transition: all 0.2s ease;
 }
 

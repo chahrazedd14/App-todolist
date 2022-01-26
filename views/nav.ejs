@@ -15,6 +15,7 @@
         <div id="background"></div>
 
         <div class='container_card'>
+            <h1 class="look2">tableau de bord</h1>
             <h1 id="title2" class="margin-top">netodoBook</h1>
             <h2>
                 <%= username123 %>
@@ -33,12 +34,9 @@
                         <div class='price'>Agenda</div>
                     </div>
                     <div class='card_inner__cta'>
-                        <div class="eael-load-more-button-wrap">
-                            <button class="eael-load-more-button">
-                                <div class="eael-btn-loader button__loader"></div>
-                                <span>accéder</span>
-                            </button>
-                        </div>
+                        <button>
+                            <span>accéder</span>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -56,12 +54,11 @@
                             <div class='price'>Compte</div>
                         </div>
                         <div class='card_inner__cta'>
-                            <div class="eael-load-more-button-wrap">
-                                <button class="eael-load-more-button">
-                                <div class="eael-btn-loader button__loader"></div>
-                                <span>accéder</span>
+                            <button>
+                                <span>
+                                    <a href='' target='_blank'>accéder</a>
+                                </span>
                             </button>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -80,30 +77,59 @@
                             <div class='price'>Listes</div>
                         </div>
                         <div class='card_inner__cta'>
-                            <div class="eael-load-more-button-wrap">
-                                <button class="eael-load-more-button">
-                                    <div class="eael-btn-loader button__loader"></div>
-                                    <span>accéder</span>
-                                </button>
-                            </div>
+                            <button>
+                                <span>accéder</span>
+                            </button>
                         </div>
                     </div>
                 </a>
             </section>
         </div>
     </div>
-    <script>
-        const button = document.querySelector('.eael-load-more-button');
 
-        button.addEventListener('click', simulateLoad);
-        button.addEventListener('touchend', simulateLoad);
+    <div class="container-nav">
+        <nav class="menu">
+            <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+            <label class="menu-open-button" for="menu-open">
+                <span class="hamburger hamburger-1"></span>
+                <span class="hamburger hamburger-2"></span>
+                <span class="hamburger hamburger-3"></span>
+            </label>
 
-        function simulateLoad() {
-            button.classList.add('button--loading');
-            button.querySelector('span').innerHTML = 'Chargement...';
-        }
-    </script>
+            <a href="#" class="menu-item"> <i class="fa fa-tasks"></i> </a>
+            <a href="#" class="menu-item"> <i class="fa fa-clock-o"></i></a>
+            <a href="#" class="menu-item"> <i class="fa fa-sign-out"></i></a>
+            <a href="#" class="menu-item"> <i class="fa fa-sticky-note-o"></i></a>
+            <a href="#" class="menu-item"> <i class="fa fa-cog"></i> </a>
+            <a href="#" class="menu-item"> <i class="fa fa-calendar"></i> </a>
 
+        </nav>
+
+
+        <!-- filters -->
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="shadowed-goo">
+
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                        result="goo" />
+                    <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+                    <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
+                        result="shadow" />
+                    <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+                    <feComposite in2="shadow" in="goo" result="goo" />
+                    <feComposite in2="goo" in="SourceGraphic" result="mix" />
+                </filter>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                        result="goo" />
+                    <feComposite in2="goo" in="SourceGraphic" result="mix" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
 </body>
 
 </html>
